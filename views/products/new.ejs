@@ -1,0 +1,71 @@
+<% layout("layouts/boilerplate.ejs") %>
+<div class="row">
+  <h1 class="text-center">Create new product</h1>
+</div>
+<div class="col-6 offset-3">
+  <form
+    action="/products"
+    method="POST"
+    class="needs-validation"
+    novalidate
+    enctype="multipart/form-data"
+  >
+    <div class="mb-3">
+      <label for="name" class="form-label">Name Of Product</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        name="product[name]"
+        required
+        placeholder="Enter product's name"
+      />
+      <div class="valid-feedback">Looks Good</div>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price Of Product</label>
+      <div class="input-group">
+        <span class="input-group-text" id="price-label">₹</span>
+        <input
+          type="text"
+          id="price"
+          class="form-control"
+          name="product[price]"
+          placeholder="Enter product's price"
+          aria-label="Amount (to the nearest rupees)"
+          aria-describedby="price-label"
+          required
+        />
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">image</label>
+      <input
+        type="file"
+        id="image"
+        class="form-control"
+        required
+        name="image"
+        placeholder="choose your files"
+        multiple
+      />
+      <div class="valid-feedback">Looks Good</div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Enter the description</label>
+      <textarea
+        class="form-control"
+        type="text"
+        name="product[description]"
+        id="description"
+        placeholder=" description of the product"
+        required
+      ></textarea>
+      <div class="valid-feedback">Looks Good</div>
+    </div>
+    <button class="btn btn-success">Submit</button>
+  </form>
+  <div class="mt-5">
+    <a class="btn btn-warning" href="/products">All Products</a>
+  </div>
+</div>

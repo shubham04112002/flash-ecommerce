@@ -1,0 +1,93 @@
+<% layout("layouts/boilerplate.ejs") %>
+<div class="row">
+  <h1 class="text-center">Edit the product</h1>
+</div>
+<div class="col-6 offset-3">
+  <form
+    action="/products/<%= product._id %>?_method=PUT"
+    method="POST"
+    class="needs-validation"
+    novalidate
+    enctype="multipart/form-data"
+  >
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        name="product[name]"
+        value="<%= product.name  %> "
+        placeholder="Enter product's name"
+        required
+      />
+      <div class="valid-feedback">Looks Good</div>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <div class="input-group">
+        <span class="input-group-text" id="price-label">₹</span>
+        <input
+          type="text"
+          id="price"
+          class="form-control"
+          name="product[price]"
+          value="<%= product.price %>"
+          placeholder="Enter product's price"
+          required
+        />
+      </div>
+      <div class="valid-feedback">Looks Good</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        type="text"
+        class="form-control mb-3"
+        name="product[description]"
+        id="description"
+        placeholder="Description Of Product"
+        required
+      >
+<%= product.description %></textarea
+      >
+      <div class="valid-feedback">Looks Good</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input
+        type="file"
+        id="image"
+        class="form-control mb-3"
+        name="image"
+        multiple
+      />
+      <div class="valid-feedback">Looks Good</div>
+    </div>
+
+    <div class="mb-3">
+      <% product.images.forEach((img,i)=>{ %>
+      <img class="img-thumbnail" src="<%= img.thumbnail %>" alt="" />
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="deleteImages[]"
+          value="<%= img.filename %>"
+          id="image-<%= i %>"
+        />
+        <label class="form-check-label" for="image-<%= i %>"> Delete? </label>
+      </div>
+      <% }) %>
+    </div>
+
+    <button class="btn btn-success mb-3">Update Product</button>
+  </form>
+  <div class="mt-3">
+    <a class="btn btn-warning mb-3" href="/products/<%= product.id %> "
+      >Back to details</a
+    >
+  </div>
+</div>

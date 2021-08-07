@@ -1,0 +1,26 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<a href="/products/new" class="btn btn-primary mb-3">Add a new Product</a>
+
+<div class="d-flex justify-content-center">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <% for(product of products){ %>
+    <div class="col mb-4 d-flex justify-content-center">
+      <div class="card" style="width: 18rem">
+        <img
+          src="<%= product.images[0].url %>"
+          class="card-img-top image-fluid"
+          alt="<%= product.name %> "
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= product.name %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <a href="/products/<%= product._id %> " class="btn btn-primary"
+            >See Product</a
+          >
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+/* some universal css */
+h1 {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+h2 {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+a {
+  text-decoration: none;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+}
+header {
+  grid-area: header;
+  background-color: #203040;
+}
+main {
+  grid-area: main;
+  padding: 1rem;
+}
+footer {
+  grid-area: footer;
+  background-color: #203040;
+}
+header a {
+  padding: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* end of universal css */
+
+/* styling header and footer */
+.brand {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.cart:hover {
+  color: #ff8000;
+  transition: 0.3s;
+}
+.signin:hover {
+  color: #ff8000;
+  transition: 0.3s;
+}
+/* End of styling header and footer */
+
+/* styling a card*/
+.card-container {
+  padding: 0;
+  margin: 1.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  align-items: center;
+  border: 0.2rem #c0c0c0 solid;
+  background: #f8f8f8;
+  border-radius: 0.5rem;
+}
+
+/* styling bulb image */
+.bulb {
+  width: 290px;
+  height: 354px;
+  object-fit: contain;
+}
+/* End of styling bulb image */
+
+/* Styling card body */
+.card-body {
+  padding: 1rem;
+}
+/* End of Styling  */
+
+/* styling the title of product */
+.card-body > a > h2 {
+  color: #203040;
+}
+.card-body > a > h2:hover {
+  color: #ff8000;
+  transition: 0.3s;
+}
+/* End of Styling the title of the product */
+
+/* Styling the ratings */
+.card-body > span > i {
+  color: #ffd700;
+}
+/* End of styling the ratings */
+
+/* Styling the price */
+.price {
+  font-weight: bold;
+}
+/* End of styling Card */
+/* styling product container */
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* End of styling product container */
