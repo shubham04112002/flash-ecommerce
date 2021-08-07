@@ -19,8 +19,8 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 const MongoStore = require("connect-mongo");
 
-const dbUrl = process.env.DB_URL;
-// "mongodb://localhost:27017/flash"
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/flash";
+
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -83,7 +83,6 @@ app.use("/products/:id/review", reviewsRouter);
 app.get("/", (req, res) => {
   res.render("home");
 });
-
 
 app.all("*", (req, res, next) => {
   req.flash("error", "No such page exists");
